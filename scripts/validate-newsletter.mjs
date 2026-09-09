@@ -29,6 +29,12 @@ for (const resource of resourceAttributes) {
   assert(/^https?:\/\//i.test(resource), `URL não absoluta encontrada: ${resource}`);
 }
 
+const images = [...html.matchAll(/<img\b[^>]*>/gi)].map((match) => match[0]);
+for (const image of images) {
+  assert(/\bsrc="https?:\/\//i.test(image), "Imagem sem URL pública absoluta");
+  assert(/\balt="[^"]+"/i.test(image), "Imagem sem texto alternativo descritivo");
+}
+
 assert(/<html[^>]+lang="pt-BR"/i.test(html), "Idioma pt-BR não configurado");
 assert(/<meta[^>]+name="viewport"/i.test(html), "Viewport responsivo ausente");
 
