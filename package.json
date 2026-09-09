@@ -1,0 +1,10 @@
+{
+  "name": "newsletter-pea",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Newsletter institucional do Painel Economico do Amazonas",
+  "scripts": {
+    "build": "node scripts/build-newsletter.mjs",
+    "test": "node scripts/validate-newsletter.mjs"
+  }
+}
